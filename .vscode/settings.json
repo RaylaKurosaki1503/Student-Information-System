@@ -1,0 +1,5 @@
+{
+    "editor.wordWrap": "on",
+    // 79 for Code, 100 for Markdown
+    "editor.rulers": [79, 100]
+}
