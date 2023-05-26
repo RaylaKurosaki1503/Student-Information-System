@@ -1,16 +1,16 @@
-## Student-Information-System.py Documentation
+# Student-Information-System.py Documentation
 
-### Author's Details
+## Author's Details
 - Name: Rayla Kurosaki
 - GitHub Username: RaylaKurosaki1503
 
-### File Details
-- File: Student-Information-System.py
+## File Details
+- File: `Student-Information-System.py`
 
-### Description
+## Description
 The `Student-Information-System.py` file is a Python script that processes an Excel file containing student data and performs various operations on the data. The script imports modules from the `constructors` and `phases` directories to construct a `Student` object and execute different phases of data processing.
 
-### Function Documentation
+## Function Documentation
 
 - `get_path_to_excel_file(path: str) -> str`
     - Description: This function takes a file path as input and verifies if the path exists and if the file has an ".xlsx" extension. If the path does not exist or the file is not an Excel file, an exception is raised. If the path is valid, the function returns the path.
