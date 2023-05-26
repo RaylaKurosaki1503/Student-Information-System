@@ -13,16 +13,32 @@ from src.lib import pretty_print
 def get_transcript_data_to_print(student: Student) -> list[list[str]]:
     data_to_print: list[list[str]] = []
     for course in student.get_courses().values():
+        credit: str = ""
+        if course.get_credit() >= 0:
+            credit: str = str(course.get_credit())
+            pass
+        final_grade: str = ""
+        if course.get_final_grade_letter() != "n/a":
+            final_grade: str = str(course.get_final_grade_letter())
+            pass
+        earned_credits: str = ""
+        if course.get_earned_credits() >= 0:
+            earned_credits: str = str(course.get_earned_credits())
+            pass
+        points: str = ""
+        if course.get_points() >= 0:
+            points: str = pretty_print.fmt_num_to_str(course.get_points(), 3)
+            pass
         data_to_print.append([
             course.get_student_status(),
             course.get_course_id(),
             course.get_name(),
-            str(course.get_credit()),
+            credit,
             # str(course.get_raw_grade()),
             # course.get_raw_grade_letter(),
-            course.get_final_grade_letter(),
-            str(course.get_earned_credits()),
-            pretty_print.fmt_num_to_str(course.get_points(), 3)
+            final_grade,
+            earned_credits,
+            points
         ])
         pass
     return data_to_print
