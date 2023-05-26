@@ -42,10 +42,6 @@ GitHub Username: RaylaKurosaki1503
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-      <ul>
-        <li><a href="#jetbrains-pycharm">Jetbrains: Pycharm</a></li>
-        <li><a href="#vs-code">VS Code</a></li>
-      </ul>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -78,10 +74,6 @@ During the spring term in my freshman year of university, I took a Computer Scie
 ## Usage
 
 <!-- python src/Student-Information-System.py 'C:\path-to-Excel-file\filename.xlsx' -->
-
-### Jetbrains: Pycharm
-
-### VS Code
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
