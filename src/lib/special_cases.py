@@ -70,13 +70,16 @@ def compute_course_grade_a(course: Course):
     total_exam_weighted_grade: float = 0
     total_exam_weight: float = 0
     for assignment in course.get_assignment_types().values():
-        if "Exam" in assignment.get_assignment_type():
-            total_exam_weighted_grade += assignment.get_weighted_grade()
-            total_exam_weight += assignment.get_weight()
-            pass
-        else:
-            total_asgmt_weighted_grade += assignment.get_weighted_grade()
-            total_asgmt_weight += assignment.get_weight()
+        weighted_grade: float = assignment.get_weighted_grade()
+        if weighted_grade > -1:
+            if "Exam" in assignment.get_assignment_type():
+                total_exam_weighted_grade += weighted_grade
+                total_exam_weight += assignment.get_weight()
+                pass
+            else:
+                total_asgmt_weighted_grade += weighted_grade
+                total_asgmt_weight += assignment.get_weight()
+                pass
             pass
         pass
     assignment_grade: float = total_asgmt_weighted_grade / total_asgmt_weight
