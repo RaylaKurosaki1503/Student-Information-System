@@ -81,24 +81,26 @@ def compute_course_credit_and_points(student: Student):
         credit: int = course.get_credit()
         letter: str = course.get_final_grade_letter()
         no_credit_lst: list[str] = ["F", "NE"]
-        if (credit == 0) or (letter in no_credit_lst):
-            course.set_earned_credits(0)
-            course.set_points(0)
-            pass
-        else:
-            course.set_earned_credits(credit)
-            no_points_lst: list[str] = ["SE", "PE", "UE", "R"]
-            if letter in no_points_lst:
+        if letter != "n/a":
+            if (credit == 0) or (letter in no_credit_lst):
+                course.set_earned_credits(0)
                 course.set_points(0)
                 pass
             else:
-                gpa_points: dict[str, float] = {
-                    "A": 4.000, "A-": 3.667, "B+": 3.333, "B": 3.000,
-                    "B-": 2.667, "C+": 2.333, "C": 2.000, "C-": 1.667,
-                    "D": 1.000
-                }
-                earned_credit: int = course.get_earned_credits()
-                course.set_points(earned_credit * gpa_points[letter])
+                course.set_earned_credits(credit)
+                no_points_lst: list[str] = ["SE", "PE", "UE", "R"]
+                if letter in no_points_lst:
+                    course.set_points(0)
+                    pass
+                else:
+                    gpa_points: dict[str, float] = {
+                        "A": 4.000, "A-": 3.667, "B+": 3.333, "B": 3.000,
+                        "B-": 2.667, "C+": 2.333, "C": 2.000, "C-": 1.667,
+                        "D": 1.000
+                    }
+                    earned_credit: int = course.get_earned_credits()
+                    course.set_points(earned_credit * gpa_points[letter])
+                    pass
                 pass
             pass
         pass
