@@ -25,9 +25,18 @@ def get_path_to_excel_file(path: str) -> str:
     return path
 
 
+def check_for_output_dir():
+    path_to_output: str = os.path.join(os.getcwd(), "output")
+    if not os.path.exists(path_to_output):
+        os.makedirs(path_to_output)
+        pass
+    pass
+
+
 if __name__ == '__main__':
     student: Student = Student()
     path_to_excel_file: str = get_path_to_excel_file(sys.argv[1])
+    check_for_output_dir()
     phase1.add_data(student, path_to_excel_file)
     phase2.modify_data(student, path_to_excel_file)
     phase3.perform_computations(student, path_to_excel_file)
