@@ -12,7 +12,7 @@ GitHub Username: RaylaKurosaki1503
 <br />
 <div align="center">
   <a href="https://github.com/RaylaKurosaki1503/Student_Information_System">
-    <img src="assets/logo.png" alt="Logo" width="80" height="80">
+    <img src="assets/logo.png" alt="Logo" width="100" height="auto">
   </a>
 
 <h3 align="center">Student Information System</h3>
