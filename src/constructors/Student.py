@@ -84,14 +84,14 @@ class Student:
         string_to_print: str = f"Name: {self.get_name()}\nDegree(s):\n"
         for degree in self.get_degrees().values():
             degree_plans: dict[str, str] = {
-                "Ph.D.": "Doctor of Philosophy",
+                "PHD": "Doctor of Philosophy",
                 "MS": "Master of Science",
                 "MST": "Master of Science for Teachers",
                 "ME": "Master of Engineering",
                 "MBA": "Master of Business Administration",
                 "MFA": "Master of Fine Arts",
-                "M.Arch": "Master of Architecture",
-                "Adv. Cert.": "Advanced Certificate",
+                "MARCH": "Master of Architecture",
+                "ACT": "Advanced Certificate",
                 "BS": "Bachelor of Science",
                 "BFA": "Bachelor of Fine Arts",
                 "AAS": "Associate in Applied Science",
