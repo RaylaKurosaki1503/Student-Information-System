@@ -101,6 +101,7 @@ python src/Student-Information-System.py 'C:\path-to-Excel-file\filename.xlsx'
 - [x] Compute the number of attempted credits, earned credits, GPA Units, and Points for each term and print them in a pretty, tabular format.
 - [x] Compute the number of cumulative attempted credits, cumulative earned credits, cumulative GPA Units, and cumulative Points for each term and print them in a pretty, tabular format.
 - [ ] Compute the grade the student needs to get on their final exam/project to earn a specific grade.
+- [ ] Consider building this project with the approach of a database as the underlying structure instead of using objects.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
