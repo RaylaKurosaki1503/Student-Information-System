@@ -1,7 +1,6 @@
 <!--
 Author: Rayla Kurosaki
-
-GitHub Username: RaylaKurosaki1503
+GitHub: https://github.com/rkp1503
 -->
 
 <a name="readme-top"></a>
@@ -11,7 +10,7 @@ GitHub Username: RaylaKurosaki1503
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/RaylaKurosaki1503/Student_Information_System">
+  <a href="https://github.com/rkp1503/Student_Information_System">
     <img src="assets/logo.png" alt="Logo" width="100" height="auto">
   </a>
 
@@ -20,7 +19,7 @@ GitHub Username: RaylaKurosaki1503
   <p align="center">
     During the spring term in my freshman year of university, I took a Computer Science class where I learned how to code in Python. After passing that class, I decided that I like coding enough to pick it up as a hobby. One project that I wanted to do on the side was to create a program that would print out the grades I currently have. At the time, some of the professors don't update the grades in my university's SIS system so I took it upon myself to do it.
     <br />
-    <a href="https://github.com/RaylaKurosaki1503/Student_Information_System/docs"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/rkp1503/Student_Information_System/docs"><strong>Explore the docs »</strong></a>
     <br />
   </p>
 </div>
@@ -122,10 +121,10 @@ See [`LICENSE.md`](LICENSE.md) for more information.
 
 Rayla Kurosaki - raylakurosaki1503@gmail.com
 
-Project Link: [https://github.com/RaylaKurosaki1503/Student_Information_System][github-project-link]
+Project Link: [https://github.com/rkp1503/Student_Information_System][github-project-link]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[github-project-link]: https://github.com/RaylaKurosaki1503/Student_Information_System
+[github-project-link]: https://github.com/rkp1503/Student_Information_System
