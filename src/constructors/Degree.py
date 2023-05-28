@@ -1,7 +1,7 @@
 """
 Author: Rayla Kurosaki
 
-GitHub: https://github.com/RaylaKurosaki1503
+GitHub: https://github.com/rkp1503
 
 File: Degree.py
 """
