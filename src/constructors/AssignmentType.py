@@ -1,7 +1,7 @@
 """
 Author: Rayla Kurosaki
 
-GitHub: https://github.com/RaylaKurosaki1503
+GitHub: https://github.com/rkp1503
 
 File: AssignmentType.py
 """
@@ -57,7 +57,7 @@ class AssignmentType:
         self.weighted_grade: float = weighted_grade
         pass
 
-    def get_min_grade(self) -> (int, Assignment):
+    def get_min_grade(self) -> tuple[int, Assignment]:
         low_index: int = next(iter(self.assignments))
         min_grade: float = self.assignments[low_index].compute_grade()
         for index, assignment in self.assignments.items():
