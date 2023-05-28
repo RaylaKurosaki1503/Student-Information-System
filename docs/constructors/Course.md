@@ -2,7 +2,7 @@
 
 ## Author's Details
 - Name: Rayla Kurosaki
-- GitHub Username: RaylaKurosaki1503
+- GitHub: https://github.com/rkp1503
 
 ## File Details
 - File: `Course.py`
