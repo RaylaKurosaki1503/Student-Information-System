@@ -3,7 +3,7 @@ Author: Rayla Kurosaki
 
 GitHub: https://github.com/rkp1503
 
-File: Student-Information-System.py
+Terminal cmd: python src/Student-Information-System.py "C:/.../excel_file.xlsx"
 """
 
 import os
