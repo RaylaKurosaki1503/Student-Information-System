@@ -3,7 +3,8 @@ Author: Rayla Kurosaki
 
 GitHub: https://github.com/rkp1503
 
-File: phase3.py
+Description: This file provides functions to perform various computations and
+modifications on a `Student` object based on information from an Excel file.
 """
 
 import pandas as pd
@@ -15,7 +16,14 @@ from src.constructors import Student
 from src.lib import special_cases as sc
 
 
-def compute_course_grades(student: Student):
+def compute_course_grades(student: Student) -> None:
+    """
+    This function computes the course grades for each course in the `Student`
+    object. It handles special cases where the course has only one assignment
+    type, and the final grade is either a numerical value or a letter grade.
+    :param student: A `Student` object representing the student's data.
+    :return: None
+    """
     special_calc_lst = [
         "2175.CSCI-141.02", "2181.CSCI-142.01", "2185.ENGL-314.01",
         "2185.MATH-399.01", "2185.PHYS-212.06", "2188.CSCI-243.01",
@@ -27,8 +35,8 @@ def compute_course_grades(student: Student):
             if len(asgmt.get_assignments()) == 1:
                 final_grade: Asgmt = asgmt.get_assignments()[0]
                 if "/" in final_grade.get_grade():
-                    final_grade_num: float = asgmt.compute_grade()
-                    course.set_raw_grade(final_grade_num)
+                    asgmt.compute_grade()
+                    course.set_raw_grade(asgmt.get_weighted_grade())
                     pass
                 else:
                     final_grade_letter: str = final_grade.get_grade()
@@ -44,10 +52,17 @@ def compute_course_grades(student: Student):
             course.compute_raw_grade()
             pass
         pass
-    pass
+    return None
 
 
-def setting_raw_letter_grades(student: Student):
+def setting_raw_letter_grades(student: Student) -> None:
+    """
+    This function sets the raw letter grades for each course in the `Student`
+    object. It handles special cases where specific courses require custom
+    calculations for raw letter grades.
+    :param student: A `Student` object representing the student's data.
+    :return: None
+    """
     lst: list[str] = ["2185.MATH-399.01"]
     for course in student.get_courses().values():
         if course.get_course_id() in lst:
@@ -57,11 +72,19 @@ def setting_raw_letter_grades(student: Student):
             course.computing_raw_grade_letter()
             pass
         pass
-    pass
+    return None
 
 
-def overwrite_final_grade(student: Student, path_to_excel_file: str):
-    df = pd.read_excel(path_to_excel_file, sheet_name="overwrite_final_grade")
+def overwrite_final_grade(student: Student, path: str) -> None:
+    """
+    This function overwrites the final grade for each course in the `Student`
+    object based on the information from the "overwrite_final_grade" sheet in
+    the specified Excel file.
+    :param student: A `Student` object representing the student's data.
+    :param path: The path to the Excel file containing the data.
+    :return: None
+    """
+    df = pd.read_excel(path, sheet_name="overwrite_final_grade")
     for i, row in df.iterrows():
         term: int = int(row["Term"])
         course_code: str = str(row["Course"])
@@ -73,10 +96,17 @@ def overwrite_final_grade(student: Student, path_to_excel_file: str):
         course: Course = student.get_course(f"{term}.{course_code}.{section}")
         course.set_final_grade_letter(final_grade)
         pass
-    pass
+    return None
 
 
-def compute_course_credit_and_points(student: Student):
+def compute_course_credit_and_points(student: Student) -> None:
+    """
+    This function computes the course credits and points for each course in
+    the `Student` object. It calculates the earned credits and points based on
+    the final grade letter.
+    :param student: A `Student` object representing the student's data.
+    :return: None
+    """
     for course in student.get_courses().values():
         credit: int = course.get_credit()
         letter: str = course.get_final_grade_letter()
@@ -104,17 +134,31 @@ def compute_course_credit_and_points(student: Student):
                 pass
             pass
         pass
-    pass
+    return None
 
 
-def compute_term_gpas(student: Student):
+def compute_term_gpas(student: Student) -> None:
+    """
+    This function computes the term GPAs for each term in the `Student`
+    object. It calculates the GPA based on the earned credits and points for
+    each term.
+    :param student: A `Student` object representing the student's data.
+    :return: None
+    """
     for term in student.get_terms().values():
         term.compute_gpa()
         pass
-    pass
+    return None
 
 
-def compute_cumulative_gpas(student: Student):
+def compute_cumulative_gpas(student: Student) -> None:
+    """
+    This function computes the cumulative GPAs for each student status in the
+    `Student` object. It calculates the cumulative GPA based on the cumulative
+    earned credits and points for each student status.
+    :param student: A `Student` object representing the student's data.
+    :return: None
+    """
     student_status: str = "Undergraduate"
     cumulative_attempted_credits: int = 0
     cumulative_earned_credits: int = 0
@@ -145,14 +189,22 @@ def compute_cumulative_gpas(student: Student):
         pass
     gpa: float = cumulative_points / cumulative_gpa_units
     student.set_gpa(student_status, gpa)
-    pass
+    return None
 
 
-def perform_computations(student: Student, path_to_excel_file: str):
+def perform_computations(student: Student, path: str) -> None:
+    """
+    This function performs all the necessary computations and modifications on
+    the `Student` object based on the information from the Excel file. It
+    calls the above functions in the appropriate order.
+    :param student: A `Student` object representing the student's data.
+    :param path: The path to the Excel file containing the data.
+    :return: None
+    """
     compute_course_grades(student)
     setting_raw_letter_grades(student)
-    overwrite_final_grade(student, path_to_excel_file)
+    overwrite_final_grade(student, path)
     compute_course_credit_and_points(student)
     compute_term_gpas(student)
     compute_cumulative_gpas(student)
-    pass
+    return None

@@ -3,7 +3,9 @@ Author: Rayla Kurosaki
 
 GitHub: https://github.com/rkp1503
 
-File: __init__.py
+Description: The code snippet imports the `os` and `sys` modules and appends
+the current working directory to the `sys.path`. This allows the program to
+access modules and packages located in the current working directory.
 """
 
 import os

@@ -3,7 +3,10 @@ Author: Rayla Kurosaki
 
 GitHub: https://github.com/rkp1503
 
-File: phase4.py
+Description: This file contains functions related to printing various types of
+data for a student. The functions are used to generate and print transcript
+data, GPA data, and cumulative GPA data for a given student. The data is
+printed in formatted tables and saved in separate output files.
 """
 
 from src.constructors.Student import Student
@@ -11,6 +14,16 @@ from src.lib import pretty_print
 
 
 def get_transcript_data_to_print(student: Student) -> list[list[str]]:
+    """
+    This function takes a `Student` object as input and generates a nested
+    list of transcript data to print. The transcript data includes information
+    such as student status, course ID, course name, credits, final grade,
+    earned credits, and points. The data is returned as a nested list of
+    strings.
+    :param student: The `Student` object for which the transcript data is
+    generated.
+    :return: A nested list of transcript data to print.
+    """
     data_to_print: list[list[str]] = []
     for course in student.get_courses().values():
         credit: str = ""
@@ -44,7 +57,17 @@ def get_transcript_data_to_print(student: Student) -> list[list[str]]:
     return data_to_print
 
 
-def print_transcript(student: Student):
+def print_transcript(student: Student) -> None:
+    """
+    This function takes a `Student` object as input and prints the transcript
+    data for the student. The function uses the `get_transcript_data_to_print`
+    function to obtain the transcript data and then formats and prints the
+    data in a table format. The transcript data is saved in a file named
+    "transcript.txt" in the "output" directory.
+    :param student: The `Student` object for which the transcript data is
+    printed.
+    :return: None
+    """
     header: list[str] = [
         "Status", "Course ID", "Description", "Credits",
         # "Raw Grade", "Raw Grade Letter",
@@ -67,10 +90,18 @@ def print_transcript(student: Student):
             pass
         pretty_print.print_boundary(file, column_widths)
         pass
-    pass
+    return None
 
 
 def get_gpa_data_to_print(student: Student) -> list[list[str]]:
+    """
+    This function takes a `Student` object as input and generates a nested
+    list of GPA data to print. The GPA data includes information such as
+    student status, term, GPA, and cumulative GPA. The data is returned as a
+    nested list of strings.
+    :param student: The `Student` object for which the GPA data is generated.
+    :return: A nested list of GPA data to print.
+    """
     data_to_print: list[list[str]] = []
     for term in student.get_terms().values():
         term_num: str = str(term.get_term_num())[1:]
@@ -94,7 +125,16 @@ def get_gpa_data_to_print(student: Student) -> list[list[str]]:
     return data_to_print
 
 
-def print_gpas(student: Student):
+def print_gpas(student: Student) -> None:
+    """
+    This function takes a `Student` object as input and prints the GPA data
+    for the student. The function uses the `get_gpa_data_to_print` function to
+    obtain the GPA data and then formats and prints the data in a table
+    format. The GPA data is saved in a file named "GPAs.txt" in the "output"
+    directory.
+    :param student: The `Student` object for which the GPA data is printed.
+    :return: None
+    """
     header: list[str] = ["Status", "Term", "GPA", "Cumulative GPA"]
     data: list[list[str]] = get_gpa_data_to_print(student)
     student_status = ""
@@ -113,10 +153,19 @@ def print_gpas(student: Student):
             pass
         pretty_print.print_boundary(file, column_widths)
         pass
-    pass
+    return None
 
 
 def get_term_gpa_data_to_print(student: Student) -> list[list[str]]:
+    """
+    This function takes a `Student` object as input and generates a nested
+    list of term GPA data to print. The term GPA data includes information
+    such as student status, term, GPA, attempted credits, earned credits, GPA
+    units, and points. The data is returned as a nested list of strings.
+    :param student: The `Student` object for which the term GPA data is
+    generated.
+    :return: A nested list of term GPA data to print.
+    """
     data_to_print: list[list[str]] = []
     for term in student.get_terms().values():
         term_num: str = str(term.get_term_num())[1:]
@@ -143,7 +192,17 @@ def get_term_gpa_data_to_print(student: Student) -> list[list[str]]:
     return data_to_print
 
 
-def print_term_gpas(student: Student):
+def print_term_gpas(student: Student) -> None:
+    """
+    This function takes a `Student` object as input and prints the term GPA
+    data for the student. The function uses the `get_term_gpa_data_to_print`
+    function to obtain the term GPA data and then formats and prints the data
+    in a table format. The term GPA data is saved in a file named
+    "Term GPAs.txt" in the "output" directory.
+    :param student: The `Student` object for which the term GPA data is
+    printed.
+    :return: None
+    """
     header: list[str] = [
         "Status", "Term", "GPA", "Attempted", "Earned", "GPA Units", "Points",
     ]
@@ -164,10 +223,20 @@ def print_term_gpas(student: Student):
             pass
         pretty_print.print_boundary(file, column_widths)
         pass
-    pass
+    return None
 
 
 def get_cumulative_gpa_data_to_print(student: Student) -> list[list[str]]:
+    """
+    This function takes a `Student` object as input and generates a nested
+    list of cumulative GPA data to print. The cumulative GPA data includes
+    information such as student status, term, cumulative GPA, cumulative
+    attempted credits, cumulative earned credits, cumulative GPA units, and
+    cumulative points. The data is returned as a nested list of strings.
+    :param student: The `Student` object for which the cumulative GPA data is
+    generated.
+    :return: A nested list of cumulative GPA data to print.
+    """
     data_to_print: list[list[str]] = []
     for term in student.get_terms().values():
         term_num: str = str(term.get_term_num())[1:]
@@ -194,7 +263,18 @@ def get_cumulative_gpa_data_to_print(student: Student) -> list[list[str]]:
     return data_to_print
 
 
-def print_cumulative_gpas(student: Student):
+def print_cumulative_gpas(student: Student) -> None:
+    """
+    This function takes a `Student` object as input and prints the cumulative
+    GPA data for the student. The function uses the
+    `get_cumulative_gpa_data_to_print` function to obtain the cumulative GPA
+    data and then formats and prints the data in a table format.
+    The cumulative GPA data is saved in a file named "Cumulative GPAs.txt" in
+    the "output" directory.
+    :param student: The `Student` object for which the cumulative GPA data is
+    printed.
+    :return: None
+    """
     header: list[str] = [
         "Status", "Term", "Cumulative GPA", "Cumulative Attempted",
         "Cumulative Earned", "Cumulative GPA Units", "Cumulative Points"
@@ -216,10 +296,21 @@ def print_cumulative_gpas(student: Student):
             pass
         pretty_print.print_boundary(file, column_widths)
         pass
-    pass
+    return None
 
 
 def get_detailed_gpa_data_to_print(student: Student) -> list[list[str]]:
+    """
+    This function takes a `Student` object as input and generates a nested
+    list of detailed GPA data to print. The detailed GPA data includes
+    information such as student status, term, GPA, attempted credits, earned
+    credits, GPA units, points, cumulative GPA, cumulative attempted credits,
+    cumulative earned credits, cumulative GPA units, and cumulative points.
+    The data is returned as a nested list of strings.
+    :param student: The `Student` object for which the detailed GPA data is
+    generated.
+    :return: A nested list of detailed GPA data to print.
+    """
     data_to_print: list[list[str]] = []
     for term in student.get_terms().values():
         term_num: str = str(term.get_term_num())[1:]
@@ -251,7 +342,18 @@ def get_detailed_gpa_data_to_print(student: Student) -> list[list[str]]:
     return data_to_print
 
 
-def print_detailed_gpas(student: Student):
+def print_detailed_gpas(student: Student) -> None:
+    """
+    This function takes a `Student` object as input and prints the detailed
+    GPA data for the student. The function uses the
+    `get_detailed_gpa_data_to_print` function to obtain the detailed GPA data
+    and then formats and prints the data in a table format. The detailed GPA
+    data is saved in a file named "Detailed GPAs.txt" in the "output"
+    directory.
+    :param student: The `Student` object for which the detailed GPA data is
+    printed.
+    :return: None
+    """
     header: list[str] = [
         "Status", "Term", "GPA", "Attempted", "Earned", "GPA Units", "Points",
         "Cumulative GPA", "Cumulative Attempted", "Cumulative Earned",
@@ -274,13 +376,22 @@ def print_detailed_gpas(student: Student):
             pass
         pretty_print.print_boundary(file, column_widths)
         pass
-    pass
+    return None
 
 
-def print_data(student: Student):
+def print_data(student: Student) -> None:
+    """
+    This function takes a `Student` object as input and calls the other
+    printing functions to print all the available data (transcript data, GPA
+    data, term GPA data, cumulative GPA data, and detailed GPA data) for the
+    student. The function generates separate output files for each type of
+    data.
+    :param student: The `Student` object for which the data is printed.
+    :return: None
+    """
     print_transcript(student)
     print_gpas(student)
     print_term_gpas(student)
     print_cumulative_gpas(student)
     print_detailed_gpas(student)
-    pass
+    return None

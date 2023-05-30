@@ -3,7 +3,8 @@ Author: Rayla Kurosaki
 
 GitHub: https://github.com/rkp1503
 
-File: phase2.py
+Description: This file provides functions to modify and update data in a
+`Student` object based on information from an Excel file.
 """
 
 import pandas as pd
@@ -15,8 +16,16 @@ from src.constructors.Student import Student
 from src.lib import special_cases as sc
 
 
-def drop_grades(student: Student, path_to_excel_file: str):
-    df = pd.read_excel(path_to_excel_file, sheet_name="drop_grades")
+def drop_grades(student: Student, path: str) -> None:
+    """
+    This function reads the "drop_grades" sheet from the specified Excel file
+    and drops a certain number of grades for each assignment type in each
+    course. The number of grades to be dropped is specified in the Excel sheet.
+    :param student: A `Student` object representing the student's data.
+    :param path: The path to the Excel file containing the data.
+    :return: None
+    """
+    df = pd.read_excel(path, sheet_name="drop_grades")
     for i, row in df.iterrows():
         term: int = int(row["Term"])
         course_code: str = str(row["Course"])
@@ -38,11 +47,19 @@ def drop_grades(student: Student, path_to_excel_file: str):
                 pass
             pass
         pass
-    pass
+    return None
 
 
-def overwrite_final_exam_grade(student: Student, path_to_excel_file: str):
-    df = pd.read_excel(path_to_excel_file, sheet_name="overwrite_final_exam")
+def overwrite_final_exam_grade(student: Student, path: str) -> None:
+    """
+    This function reads the "overwrite_final_exam" sheet from the specified
+    Excel file and overwrites the final exam grade with the minimum exam grade
+    if the final exam grade is higher. This is done for each course.
+    :param student: A `Student` object representing the student's data.
+    :param path: The path to the Excel file containing the data.
+    :return: None
+    """
+    df = pd.read_excel(path, sheet_name="overwrite_final_exam")
     for index, row in df.iterrows():
         term: int = int(row["Term"])
         course_code: str = str(row["Course"])
@@ -61,10 +78,17 @@ def overwrite_final_exam_grade(student: Student, path_to_excel_file: str):
                 pass
             pass
         pass
-    pass
+    return None
 
 
-def modify_data(student: Student, path_to_excel_file: str):
-    drop_grades(student, path_to_excel_file)
-    overwrite_final_exam_grade(student, path_to_excel_file)
-    pass
+def modify_data(student: Student, path: str) -> None:
+    """
+    This function calls the above functions to modify and update the student's
+    data based on the information from the Excel file.
+    :param student: A `Student` object representing the student's data.
+    :param path: The path to the Excel file containing the data.
+    :return: None
+    """
+    drop_grades(student, path)
+    overwrite_final_exam_grade(student, path)
+    return None
