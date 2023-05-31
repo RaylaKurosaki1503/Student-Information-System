@@ -42,7 +42,6 @@ GitHub: https://github.com/rkp1503
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -102,15 +101,6 @@ python src/Student-Information-System.py 'C:\path-to-Excel-file\filename.xlsx'
 - [ ] Compute the grade the student needs to get on their final exam/project to earn a specific grade.
 - [ ] Consider building this project with the approach of a database as the underlying structure instead of using objects.
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-See [`LICENSE.md`](LICENSE.md) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
